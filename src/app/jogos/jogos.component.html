@@ -1,0 +1,56 @@
+<section>
+  <div class="background-categoria" style="background-image: url('{{this.categoria.img}}');"></div>
+  <div class="lista">
+
+    <div class="bloco-categoria">
+      <div class="categoria">
+        <h2>{{this.categoria.nome}}</h2>
+
+        <div class="bloco-search">
+
+          <div class="filtro">
+
+            <div class="search">
+              <input type="search" placeholder="Buscar jogo ou palavra-chave" />
+              <div class="botao-search">
+                <i class="bi bi-search"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div class="qtd-resultados">
+              {{this.categoria.jogos.length}} Resultados
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bloco" *ngFor="let jogo of this.categoria.jogos">
+        <div class="img">
+          <img [src]="jogo.img" [alt]="jogo.nome" />
+        </div>
+        <div class="dados">
+          <p class="titulo">
+            {{this.ajustaTexto(jogo.nome)}}
+          </p>
+          <p class="console">
+            <i *ngFor="let console of this.categoria.consoles" [class]="console.icone"></i>
+          </p>
+        </div>
+        <div class="valores">
+          <div *ngIf="jogo.desconto < 0" class="desconto">
+            {{jogo.desconto}}%
+          </div>
+          <div class="botao">
+            R$ {{jogo.preco}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+

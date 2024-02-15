@@ -4,7 +4,7 @@
     <div class="bloco-categoria" *ngFor="let categoria of this.listaCategorias">
       <div class="categoria">
         <h2>{{categoria.nome}}</h2>
-        <div class="botao">
+        <div class="botao" [routerLink]="['/jogos/', categoria.uri]" >
           Ver mais
         </div>
       </div>
@@ -22,7 +22,7 @@
           </p>
         </div>
         <div class="valores">
-          <div class="desconto">
+          <div *ngIf="jogo.desconto < 0" class="desconto">
             {{jogo.desconto}}%
           </div>
           <div class="botao">

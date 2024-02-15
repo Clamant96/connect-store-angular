@@ -20,6 +20,7 @@ html, body {
   --backgraund-color-default: #151D27;
   --backgraund-color-card: #202B39;
   --background-color-desconto: rgb(255, 102, 102);
+  --background-color-search: #ffffff;
 
   --button-valor-card: #5f738a4d;
   --button-valor-card-hover: #EE2233;
@@ -27,13 +28,20 @@ html, body {
   --button-ver-mais: rgba(0, 153, 204, 0.7);
 
   --text-color: #FFFFFF;
+  --text-chadow-h2: rgba(0,0,0,.8);
+  --text-color-serach: #a0a0a0;
+  --text-color-qtd-resultados: #96a6b7;
 
   --icon-consoles: #7CA7CF;
   --icon-consoles-2: #96A6B7;
 
   --border-button-add: rgb(67, 84, 103);
   --border-button-ver-mais: rgb(0, 153, 204);
+  --border-search: #bbbbbb;
 
   --box-shadow-button-card-add: rgba(0, 0, 0, 0.3);
+
+  --gradient-background-1: #151d27;
+  --gradient-background-2: #151d2780;
 
 }
