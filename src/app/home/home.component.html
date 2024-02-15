@@ -1,0 +1,38 @@
+<section>
+  <div class="lista">
+
+    <div class="bloco-categoria" *ngFor="let categoria of this.listaCategorias">
+      <div class="categoria">
+        <h2>{{categoria.nome}}</h2>
+        <div class="botao">
+          Ver mais
+        </div>
+      </div>
+
+      <div class="bloco" *ngFor="let jogo of categoria.jogos">
+        <div class="img">
+          <img [src]="jogo.img" [alt]="jogo.nome" />
+        </div>
+        <div class="dados">
+          <p class="titulo">
+            {{this.ajustaTexto(jogo.nome)}}
+          </p>
+          <p class="console">
+            <i *ngFor="let console of categoria.consoles" [class]="console.icone"></i>
+          </p>
+        </div>
+        <div class="valores">
+          <div class="desconto">
+            {{jogo.desconto}}%
+          </div>
+          <div class="botao">
+            R$ {{jogo.preco}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+

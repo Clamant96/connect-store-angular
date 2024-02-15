@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+
+  background-color: var(--backgraund-color-default);
+
+  color: var(--text-color);
+
+}
+
+:root {
+  --backgraund-color-default: #151D27;
+  --backgraund-color-card: #202B39;
+  --background-color-desconto: rgb(255, 102, 102);
+
+  --button-valor-card: #5f738a4d;
+  --button-valor-card-hover: #EE2233;
+  --button-acao-pagina: #028DBC;
+  --button-ver-mais: rgba(0, 153, 204, 0.7);
+
+  --text-color: #FFFFFF;
+
+  --icon-consoles: #7CA7CF;
+  --icon-consoles-2: #96A6B7;
+
+  --border-button-add: rgb(67, 84, 103);
+  --border-button-ver-mais: rgb(0, 153, 204);
+
+  --box-shadow-button-card-add: rgba(0, 0, 0, 0.3);
+
+}
