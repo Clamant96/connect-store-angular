@@ -21,9 +21,9 @@ export class CategoriaService {
 
   }
 
-  findAllJogosCategoria(): Observable<Categoria[]> {
+  findAllJogosComSeusConsolesEUsuarioCategoria(): Observable<Categoria[]> {
 
-    return this.http.get<Categoria[]>(`${this.API}/categoria/all-jogos-categoria`, this.AUTORIZACAO)
+    return this.http.get<Categoria[]>(`${this.API}/categoria/all-jogos-com-console-usuario-e-categoria`, this.AUTORIZACAO)
   }
 
   findAllJogosCategoriaByUri(uri: string): Observable<Categoria> {

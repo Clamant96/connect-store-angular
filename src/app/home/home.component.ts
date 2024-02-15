@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllJogosCategoria() {
-    this.categoriaService.findAllJogosCategoria().subscribe((resp: Categoria[]) => {
+    this.categoriaService.findAllJogosComSeusConsolesEUsuarioCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
 
       console.log('this.listaJlistaCategoriasogos: ', this.listaCategorias);
@@ -77,6 +77,18 @@ export class HomeComponent implements OnInit {
       }
 
     }
+
+    return retorno;
+  }
+
+  ajustaImg(jogo: Jogo) {
+    let retorno: string = "";
+
+    console.log('img: ', jogo.img);
+
+    retorno = `background-image: url('${jogo.img}');`;
+
+    console.log('retorno: ', retorno);
 
     return retorno;
   }

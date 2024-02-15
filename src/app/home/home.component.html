@@ -18,7 +18,7 @@
             {{this.ajustaTexto(jogo.nome)}}
           </p>
           <p class="console">
-            <i *ngFor="let console of categoria.consoles" [class]="console.icone"></i>
+            <i *ngFor="let console of jogo.consoles" [class]="console.icone"></i>
           </p>
         </div>
         <div class="valores">

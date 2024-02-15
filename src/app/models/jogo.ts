@@ -9,7 +9,7 @@ export class Jogo {
   public preco: string;
   public desconto: number;
   public categorias: Categoria;
-  public consoles: Console;
+  public consoles: Console[];
   public usuarios: Usuario;
 
 }

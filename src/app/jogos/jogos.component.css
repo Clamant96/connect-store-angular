@@ -206,6 +206,75 @@ section .lista .bloco-categoria .categoria .bloco-search .footer .qtd-resultados
 
 }
 
+section .lista .bloco-categoria .categoria .bloco-search .pesquisa-dropdown {
+  margin-top: 15px;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section .lista .bloco-categoria .categoria .bloco-search .pesquisa-dropdown .dropdown {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section .lista .bloco-categoria .categoria .bloco-search .pesquisa-dropdown .dropdown select {
+  padding: 2%;
+
+  width: 96%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--backgraund-color-default);
+
+  color: var(--text-color-qtd-resultados);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  border: 1px solid var(--border-button-dropdown);
+
+  text-transform: none;
+
+  transition: background-color .2s ease,color .2s ease;
+
+  outline: 0;
+
+  /* Arrow */
+  appearance: none;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ffffff" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+
+}
+
+section .lista .bloco-categoria .categoria .bloco-search .pesquisa-dropdown .dropdown #plataforma {
+  border-radius: 5px 0px 0px 5px;
+  border-right: 1px solid var(--border-button-dropdown);
+
+}
+
+section .lista .bloco-categoria .categoria .bloco-search .pesquisa-dropdown .dropdown #preco {
+  border-radius: 0px 5px 5px 0px;
+  border-left: 0;
+
+}
+
 section .lista .bloco-categoria .bloco {
   margin: 0px 10px;
 

@@ -20,14 +20,36 @@
 
           <div class="footer">
             <div class="qtd-resultados">
-              {{this.categoria.jogos.length}} Resultados
+              {{this.renderizaQtdItens(this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa))}} Resultados
+            </div>
+          </div>
+
+          <div class="pesquisa-dropdown">
+            <div class="dropdown">
+              <select name="plataforma" id="plataforma" (change)='handleIdConsole($event)'>
+                <option value="" [defaultSelected]="true" >Plataforma</option>
+                <option *ngFor='let console of this.categoria.consoles' value="{{console.id}}">{{console.nome}}</option>
+              </select>
+              <select name="preco" id="preco" (change)='handlePrecoJogo($event)'>
+                <option value="" [defaultSelected]="true" >Preço</option>
+                <option value="5">Até R$5,00</option>
+                <option value="10">Até R$10,00</option>
+                <option value="15">Até R$15,00</option>
+                <option value="20">Até R$20,00</option>
+                <option value="25">Até R$25,00</option>
+                <option value="50">Até R$50,00</option>
+                <option value="100">Até R$100,00</option>
+                <option value="160">Até R$160,00</option>
+                <option value="500">Até R$500,00</option>
+                <option value="0">Grátis</option>
+              </select>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="bloco" *ngFor="let jogo of this.categoria.jogos">
+      <div class="bloco" *ngFor="let jogo of this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa).jogos">
         <div class="img">
           <img [src]="jogo.img" [alt]="jogo.nome" />
         </div>
@@ -36,7 +58,7 @@
             {{this.ajustaTexto(jogo.nome)}}
           </p>
           <p class="console">
-            <i *ngFor="let console of this.categoria.consoles" [class]="console.icone"></i>
+            <i *ngFor="let console of this.ajustaObjJogo(jogo, this.idConsolePesquisa, this.precoJogoPesquisa).consoles" [class]="console.icone"></i>
           </p>
         </div>
         <div class="valores">
