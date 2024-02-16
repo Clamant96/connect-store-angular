@@ -21,6 +21,7 @@ html, body {
   --backgraund-color-card: #202B39;
   --background-color-desconto: rgb(255, 102, 102);
   --background-color-search: #ffffff;
+  --backgroung-color-cart: rgb(87 105 125 / 27%);
 
   --button-carrinho: #435467;
   --button-valor-card: #5f738a4d;
@@ -41,11 +42,18 @@ html, body {
   --border-search: #bbbbbb;
   --border-button-dropdown: rgba(87, 105, 125, 0.563);
   --border-button-header: #1d2631;
+  --border-logo-1: #F59C21;
+  --border-logo-2: #22B999;
 
   --box-shadow-button-card-add: rgba(0, 0, 0, 0.3);
   --box-shadow-header: #0000004d;
 
   --gradient-background-1: #151d27;
   --gradient-background-2: #151d2780;
+
+  --hover-menu-1: #F59C21;
+  --hover-menu-2: #22B999;
+  --hover-menu-3: #c508a2;
+  --hover-menu-4: #0310ce;
 
 }
