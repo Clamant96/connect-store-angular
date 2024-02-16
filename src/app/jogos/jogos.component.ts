@@ -148,8 +148,8 @@ export class JogosComponent implements OnInit {
 
       if(nomeJogo != '') {
 
-        this.idConsolePesquisa = 0;
-        this.precoJogoPesquisa = "";
+        this.idConsolePesquisa = 0; // VOLTA O VALOR PADRAO
+        this.precoJogoPesquisa = ""; // VOLTA O VALOR PADRAO
 
         categoria.jogos?.map((jogo) => {
 

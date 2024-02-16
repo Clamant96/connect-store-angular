@@ -22,6 +22,7 @@ html, body {
   --background-color-desconto: rgb(255, 102, 102);
   --background-color-search: #ffffff;
 
+  --button-carrinho: #435467;
   --button-valor-card: #5f738a4d;
   --button-valor-card-hover: #EE2233;
   --button-acao-pagina: #028DBC;
@@ -39,8 +40,10 @@ html, body {
   --border-button-ver-mais: rgb(0, 153, 204);
   --border-search: #bbbbbb;
   --border-button-dropdown: rgba(87, 105, 125, 0.563);
+  --border-button-header: #1d2631;
 
   --box-shadow-button-card-add: rgba(0, 0, 0, 0.3);
+  --box-shadow-header: #0000004d;
 
   --gradient-background-1: #151d27;
   --gradient-background-2: #151d2780;

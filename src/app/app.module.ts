@@ -7,12 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JogosComponent } from './jogos/jogos.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    JogosComponent
+    JogosComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
