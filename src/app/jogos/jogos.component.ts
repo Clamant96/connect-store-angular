@@ -15,6 +15,7 @@ export class JogosComponent implements OnInit {
 
   public idConsolePesquisa: number = 0;
   public precoJogoPesquisa: string = "";
+  public nomeJogoPesquisa: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -82,7 +83,7 @@ export class JogosComponent implements OnInit {
     return 0;
   }
 
-  ajustaObjCategoria(categoria: Categoria, idConsole: number, precoJogo: string) {
+  ajustaObjCategoria(categoria: Categoria, idConsole: number, precoJogo: string, nomeJogo: string) {
 
     let memoriaCategoria: Categoria = new Categoria();
 
@@ -94,7 +95,7 @@ export class JogosComponent implements OnInit {
     memoriaCategoria.jogos = [];
     memoriaCategoria.consoles = [];
 
-    if(precoJogo != '' && idConsole == 0) {
+    if(precoJogo != '' && idConsole == 0 && nomeJogo == '') {
 
       categoria.jogos?.map((jogo) => {
 
@@ -106,7 +107,7 @@ export class JogosComponent implements OnInit {
 
       });
 
-    }else if(idConsole >= 0 && precoJogo == '') {
+    }else if(idConsole >= 0 && precoJogo == '' && nomeJogo == '') {
 
       categoria.jogos?.map((jogo) => {
 
@@ -122,7 +123,7 @@ export class JogosComponent implements OnInit {
 
       });
 
-    }else if(precoJogo != '' && idConsole >= 0) {
+    }else if(precoJogo != '' && idConsole >= 0 && nomeJogo == '') {
 
       categoria.jogos?.map((jogo) => {
 
@@ -140,19 +141,32 @@ export class JogosComponent implements OnInit {
 
     }
 
-    if(precoJogo != '' || idConsole > 0) {
+    if((precoJogo != '' || idConsole > 0) && nomeJogo == '') {
 
       return memoriaCategoria;
     }else {
 
+      if(nomeJogo != '') {
+
+        this.idConsolePesquisa = 0;
+        this.precoJogoPesquisa = "";
+
+        categoria.jogos?.map((jogo) => {
+
+          if(jogo.nome.toLocaleLowerCase().includes(nomeJogo.toLocaleLowerCase())) {
+
+            memoriaCategoria.jogos.push(jogo);
+
+          }
+
+        });
+
+        return memoriaCategoria;
+      }
+
       return categoria;
     }
 
-  }
-
-  ajustaObjJogo(jogo: Jogo, idConsole: number, precoJogo: string) {
-
-    return jogo;
   }
 
   handleIdConsole(event: any) {
@@ -166,6 +180,13 @@ export class JogosComponent implements OnInit {
     console.log('PRECO JOGO: ', event.target.value);
 
     this.precoJogoPesquisa = String(event.target.value);
+
+  }
+
+  handleNomeJogo(event: any) {
+    console.log('NOME JOGO: ', event.target.value);
+
+    this.nomeJogoPesquisa = String(event.target.value);
 
   }
 

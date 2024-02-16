@@ -11,7 +11,7 @@
           <div class="filtro">
 
             <div class="search">
-              <input type="search" placeholder="Buscar jogo ou palavra-chave" />
+              <input [(ngModel)]="this.nomeJogoPesquisa" type="search" placeholder="Buscar jogo ou palavra-chave" (change)='handleNomeJogo($event)' />
               <div class="botao-search">
                 <i class="bi bi-search"></i>
               </div>
@@ -20,14 +20,14 @@
 
           <div class="footer">
             <div class="qtd-resultados">
-              {{this.renderizaQtdItens(this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa))}} Resultados
+              {{this.renderizaQtdItens(this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa, this.nomeJogoPesquisa))}} Resultados
             </div>
           </div>
 
-          <div class="pesquisa-dropdown">
+          <div *ngIf="this.nomeJogoPesquisa == ''" class="pesquisa-dropdown">
             <div class="dropdown">
               <select name="plataforma" id="plataforma" (change)='handleIdConsole($event)'>
-                <option value="" [defaultSelected]="true" >Plataforma</option>
+                <option value="0" [defaultSelected]="true" >Plataforma</option>
                 <option *ngFor='let console of this.categoria.consoles' value="{{console.id}}">{{console.nome}}</option>
               </select>
               <select name="preco" id="preco" (change)='handlePrecoJogo($event)'>
@@ -49,7 +49,7 @@
 
       </div>
 
-      <div class="bloco" *ngFor="let jogo of this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa).jogos">
+      <div class="bloco" *ngFor="let jogo of this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa, this.nomeJogoPesquisa).jogos">
         <div class="img">
           <img [src]="jogo.img" [alt]="jogo.nome" />
         </div>
@@ -58,7 +58,7 @@
             {{this.ajustaTexto(jogo.nome)}}
           </p>
           <p class="console">
-            <i *ngFor="let console of this.ajustaObjJogo(jogo, this.idConsolePesquisa, this.precoJogoPesquisa).consoles" [class]="console.icone"></i>
+            <i *ngFor="let console of jogo.consoles" [class]="console.icone"></i>
           </p>
         </div>
         <div class="valores">
