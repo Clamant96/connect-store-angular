@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { JogosComponent } from './jogos/jogos.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     JogosComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,

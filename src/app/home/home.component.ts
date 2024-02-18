@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllJogosCategoria() {
-    this.categoriaService.findAllJogosComSeusConsolesEUsuarioCategoria().subscribe((resp: Categoria[]) => {
+    this.categoriaService.findAllJogosComSeusConsolesEUsuarioCategoriaManyToManyJogos().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
 
       console.log('this.listaJlistaCategoriasogos: ', this.listaCategorias);

@@ -38,7 +38,7 @@ export class JogosComponent implements OnInit {
   }
 
   getAllJogosByUriCategoria(uri: string) {
-    this.categoriaService.findAllJogosCategoriaByUri(uri).subscribe((resp: Categoria) => {
+    this.categoriaService.findAllJogosComSeusConsolesEUsuarioCategoriaByUriManyToManyJogos(uri).subscribe((resp: Categoria) => {
       this.categoria = resp;
 
       console.log('this.categoria: ', this.categoria);
@@ -95,7 +95,7 @@ export class JogosComponent implements OnInit {
     memoriaCategoria.jogos = [];
     memoriaCategoria.consoles = [];
 
-    if(precoJogo != '' && idConsole == 0 && nomeJogo == '') {
+    if(precoJogo != '' && idConsole == 0) {
 
       categoria.jogos?.map((jogo) => {
 
@@ -107,7 +107,7 @@ export class JogosComponent implements OnInit {
 
       });
 
-    }else if(idConsole >= 0 && precoJogo == '' && nomeJogo == '') {
+    }else if(idConsole >= 0 && precoJogo == '') {
 
       categoria.jogos?.map((jogo) => {
 
@@ -123,7 +123,7 @@ export class JogosComponent implements OnInit {
 
       });
 
-    }else if(precoJogo != '' && idConsole >= 0 && nomeJogo == '') {
+    }else if(precoJogo != '' && idConsole >= 0) {
 
       categoria.jogos?.map((jogo) => {
 

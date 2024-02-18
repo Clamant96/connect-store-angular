@@ -1,0 +1,64 @@
+<div class="background-categoria" [style]="gerenciaImagemBackgroundCategoria()"></div>
+
+<section>
+  <div class="bloco">
+    <div class="bloco-categoria">
+
+      <div class="categoria">
+        <h2>{{this.gerenciaNomeCategoria()}}</h2>
+      </div>
+
+      <div class="bloco-criar-categoria">
+        <div class="img">
+          <input #file type="file" name="img" id="file" accept="image/*" enctype="multipart/form-data" (change)="processFile(file)" />
+          <label for="file">
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+            upload
+          </label>
+        </div>
+
+        <div class="dados">
+          <p class="nome">
+            <input [(ngModel)]="this.categoria.nome" type="text" name="nome" id="nome" placeholder="Nome categoria ..." />
+          </p>
+          <div class="selecao">
+            <select name="plataforma" id="plataforma" (change)='handleIdConsole($event)'>
+              <option value="0" [defaultSelected]="true" >Plataforma</option>
+              <option *ngFor='let console of this.listaConsoles' value="{{console.id}}">{{console.nome}}</option>
+            </select>
+          </div>
+          <div class="selecao">
+            <select name="jogo" id="jogo" (change)='handleIdJogo($event)'>
+              <option value="0" [defaultSelected]="true" >Jogo</option>
+              <option *ngFor='let jogo of this.listaJogos' value="{{jogo.id}}">{{jogo.nome}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="botao" (click)="cadastrarCategoria()" >
+          <p>Cadastrar</p>
+        </div>
+      </div>
+
+      <div class="pesquisa-dropdown">
+        <div class="dropdown">
+          <div class="select" id="console-selecao" *ngFor="let console of this.categoria.consoles" >
+            <i [class]="console.icone"></i>
+            <div class="acao">
+              <i class="bi bi-x" (click)="this.removeItemDeContegoria(console.id, 'consoles')"></i>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="select" id="jogo-selecao" *ngFor="let jogo of this.categoria.jogos" >
+            <p>{{jogo.nome}}</p>
+            <div class="acao">
+              <i class="bi bi-x" (click)="this.removeItemDeContegoria(jogo.id, 'jogos')"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

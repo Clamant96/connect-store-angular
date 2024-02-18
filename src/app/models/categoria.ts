@@ -7,8 +7,9 @@ export class Categoria {
   public nome: string;
   public uri: string;
   public img: string;
-  public consoles: Console[];
-  public jogos: Jogo[];
-  public usuarios: Usuario[];
+  public consoles: Console[] = [];
+  public jogos: Jogo[] = [];
+  public usuarios: Usuario[] = [];
+  public usuario_id: number;
 
 }
