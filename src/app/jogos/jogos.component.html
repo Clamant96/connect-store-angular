@@ -1,6 +1,6 @@
-<div class="background-categoria" style="background-image: url('{{this.categoria.img}}');"></div>
+<div *ngIf="!this.isEditar" class="background-categoria" style="background-image: url('{{this.servidor}}/{{this.classe}}/render/{{this.pasta}}/{{this.categoria.img}}');"></div>
 
-<section>
+<section *ngIf="!this.isEditar">
   <div class="lista">
 
     <div class="bloco-categoria">
@@ -44,6 +44,9 @@
                 <option value="500">Até R$500,00</option>
                 <option value="0">Grátis</option>
               </select>
+              <div class="editar" (click)="this.gerenciaBotaoEditar(true)" >
+                Editar
+              </div>
             </div>
           </div>
         </div>
@@ -77,3 +80,4 @@
   </div>
 </section>
 
+<app-editar-categoria *ngIf="this.isEditar" [categoria]="this.categoria"></app-editar-categoria>

@@ -9,6 +9,7 @@ import { JogosComponent } from './jogos/jogos.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import { CategoriaComponent } from './categoria/categoria.component';
     HomeComponent,
     JogosComponent,
     HeaderComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    EditarCategoriaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

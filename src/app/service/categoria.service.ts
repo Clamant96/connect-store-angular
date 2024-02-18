@@ -36,6 +36,11 @@ export class CategoriaService {
     return this.http.get<Categoria>(`${this.API}/categoria/all-jogos-categoria-uri/${uri}`, this.AUTORIZACAO)
   }
 
+  findAllJogosComSeusConsolesEUsuarioCategoriaByIdManyToManyJogos(id: number): Observable<Categoria> {
+
+    return this.http.get<Categoria>(`${this.API}/categoria/all-jogos-com-console-usuario-e-categoria-by-uri-many-to-many-jogos/${id}`, this.AUTORIZACAO)
+  }
+
   findAllJogosComSeusConsolesEUsuarioCategoriaByUriManyToManyJogos(uri: string): Observable<Categoria> {
 
     return this.http.get<Categoria>(`${this.API}/categoria/all-jogos-com-console-usuario-e-categoria-by-uri-many-to-many-jogos/${uri}`, this.AUTORIZACAO)

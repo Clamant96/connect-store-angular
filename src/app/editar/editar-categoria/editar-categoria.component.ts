@@ -1,13 +1,13 @@
-import { ImagemService } from './../service/imagem.service';
-import { CategoriaService } from './../service/categoria.service';
-import { JogoService } from './../service/jogo.service';
-import { Categoria } from '../models/categoria';
-import { Console } from '../models/console';
-import { ConsoleService } from './../service/console.service';
-import { Component, OnInit } from '@angular/core';
-import { Jogo } from '../models/jogo';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Categoria } from 'src/app/models/categoria';
+import { Console } from 'src/app/models/console';
+import { Jogo } from 'src/app/models/jogo';
+import { CategoriaService } from 'src/app/service/categoria.service';
+import { ConsoleService } from 'src/app/service/console.service';
+import { ImagemService } from 'src/app/service/imagem.service';
+import { JogoService } from 'src/app/service/jogo.service';
 import { environment } from 'src/environments/environment.prod';
-import { Router } from '@angular/router';
 
 class ImageSnippet {
   pending: boolean = false;
@@ -17,11 +17,13 @@ class ImageSnippet {
 }
 
 @Component({
-  selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  selector: 'app-editar-categoria',
+  templateUrl: './editar-categoria.component.html',
+  styleUrls: ['./editar-categoria.component.css']
 })
-export class CategoriaComponent implements OnInit {
+export class EditarCategoriaComponent implements OnInit {
+
+  @Input() categoria: Categoria = new Categoria();
 
   public idUsuario: number = environment.usuario_id;
 
@@ -31,9 +33,13 @@ export class CategoriaComponent implements OnInit {
   public selectedFile: ImageSnippet;
   public nomeArquivo: string = "";
 
-  public categoria: Categoria = new Categoria();
+  // public categoria: Categoria = new Categoria();
 
   public consoleSelecionado: string = "";
+
+  public servidor: string = "http://localhost:8080";
+  public classe: string = "categoria"
+  public pasta: string = "categorias";
 
   constructor(
     private consoleService: ConsoleService,
@@ -149,9 +155,10 @@ export class CategoriaComponent implements OnInit {
     });
 
     reader.readAsDataURL(file);
+
   }
 
-  cadastrarCategoria() {
+  atualizarCategoria() {
 
     this.categoria.usuario_id = this.idUsuario;
     this.categoria.img = this.nomeArquivo;
@@ -178,6 +185,10 @@ export class CategoriaComponent implements OnInit {
 
     if(this.selectedFile) {
       return `background-image: url('${this.selectedFile.src}');`;
+
+    }else if(this.categoria?.img) {
+      return `background-image: url('${this.servidor}/${this.classe}/render/${this.pasta}/${this.categoria?.img}');`;
+
     }
 
     return "background-image: var(--img-tela-console);";

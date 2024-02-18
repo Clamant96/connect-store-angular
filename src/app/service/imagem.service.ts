@@ -34,4 +34,9 @@ export class ImagemService {
     return this.http.post<string>(`${this.API}/categoria/upload`, data, this.AUTORIZACAO);
   }
 
+  renderImageByName(pasta: string, nomeArquivo: string) {
+
+    return this.http.get(`${this.API}/categoria/render/${pasta}/${nomeArquivo}`);
+  }
+
 }

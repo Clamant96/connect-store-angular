@@ -1,3 +1,4 @@
+import { ImagemService } from './../service/imagem.service';
 import { CategoriaService } from './../service/categoria.service';
 import { Categoria } from './../models/categoria';
 import { Component, OnInit } from '@angular/core';
@@ -17,9 +18,16 @@ export class JogosComponent implements OnInit {
   public precoJogoPesquisa: string = "";
   public nomeJogoPesquisa: string = "";
 
+  public servidor: string = "http://localhost:8080";
+  public classe: string = "categoria"
+  public pasta: string = "categorias";
+
+  public isEditar: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private imagemService: ImagemService
 
   ) { }
 
@@ -81,6 +89,13 @@ export class JogosComponent implements OnInit {
     }catch{return 0;}
 
     return 0;
+  }
+
+  renderImagem(pasta: string, nomeArquivo: string) {
+    this.imagemService.renderImageByName(pasta, nomeArquivo).subscribe((resp) => {
+      console.log('resp: ', resp);
+      return resp;
+    })
   }
 
   ajustaObjCategoria(categoria: Categoria, idConsole: number, precoJogo: string, nomeJogo: string) {
@@ -187,6 +202,11 @@ export class JogosComponent implements OnInit {
     console.log('NOME JOGO: ', event.target.value);
 
     this.nomeJogoPesquisa = String(event.target.value);
+
+  }
+
+  gerenciaBotaoEditar(editar: boolean) {
+    this.isEditar = editar;
 
   }
 
