@@ -51,4 +51,14 @@ export class CategoriaService {
     return this.http.post(`${this.API}/categoria/cadastrar-categoria`, categoria, this.AUTORIZACAO);
   }
 
+  putCategoria(categoria: Categoria) {
+
+    return this.http.put(`${this.API}/categoria/atualizar-categoria-obj`, categoria, this.AUTORIZACAO);
+  }
+
+  deleteCategoria(id: number) {
+
+    return this.http.delete(`${this.API}/categoria/deletar-categoria-obj/${id}`, this.AUTORIZACAO);
+  }
+
 }

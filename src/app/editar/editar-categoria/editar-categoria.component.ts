@@ -160,20 +160,42 @@ export class EditarCategoriaComponent implements OnInit {
 
   atualizarCategoria() {
 
+    // CASO NAO SE TENHA FEITO O UPLOAD DE UMA NOVA IMAGEM, MANTEM A QUE JA EXISTE
+    if(this.nomeArquivo != "") {
+      this.categoria.img = this.nomeArquivo;
+
+    }
+
     this.categoria.usuario_id = this.idUsuario;
-    this.categoria.img = this.nomeArquivo;
     this.categoria.uri = this.categoria.nome.toLowerCase();
 
     console.log('this.categoria: ', this.categoria);
 
-    this.categoriaService.postCategoria(this.categoria).subscribe((resp: any) => {
+    this.categoriaService.putCategoria(this.categoria).subscribe((resp: any) => {
       console.log('resp: ', resp);
 
       this.router.navigate(['/home']);
 
     }, (err) => {
       console.log('err: ', err);
-      if(String(err?.error?.text).includes('Categoria cadastrado com sucesso!')) {
+      if(String(err?.error?.text).includes('Categoria atualizada com sucesso!')) {
+        this.router.navigate(['/home']);
+      }
+
+    });
+
+  }
+
+  deletaCategoria(id: number) {
+
+    this.categoriaService.deleteCategoria(id).subscribe((resp: any) => {
+      console.log('resp: ', resp);
+
+      this.router.navigate(['/home']);
+
+    }, (err) => {
+      console.log('err: ', err);
+      if(String(err?.error?.text).includes('Categoria deletada com sucesso!')) {
         this.router.navigate(['/home']);
       }
 
