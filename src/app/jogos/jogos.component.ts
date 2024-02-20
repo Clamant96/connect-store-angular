@@ -41,7 +41,11 @@ export class JogosComponent implements OnInit {
 
     let uri = this.route.snapshot.params['uri'];
 
-    this.getAllJogosByUriCategoria(uri);
+    if(uri != "" || uri != undefined) {
+      this.getAllJogosByUriCategoria(uri);
+
+    }
+
 
   }
 
