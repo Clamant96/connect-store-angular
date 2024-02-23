@@ -1,7 +1,7 @@
 import { ConsoleService } from 'src/app/service/console.service';
 import { Component, OnInit } from '@angular/core';
 import { Console } from '../models/console';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private consoleService: ConsoleService,
-    private router: Router,
   ) { }
 
   ngOnInit() {
