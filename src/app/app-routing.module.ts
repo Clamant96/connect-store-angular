@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { JogosComponent } from './jogos/jogos.component';
 import { CategoriaComponent } from './categoria/categoria.component';
-import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categoria.component';
+import { ConsoleComponent } from './console/console.component';
+import { EditarConsoleComponent } from './editar/editar-console/editar-console.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
   {
     path: 'categoria',
     component: CategoriaComponent
+  },
+  {
+    path: 'console',
+    component: ConsoleComponent
+  },
+  {
+    path: 'console/:id',
+    component: EditarConsoleComponent
   }
 ];
 

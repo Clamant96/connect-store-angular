@@ -180,7 +180,7 @@ export class CategoriaComponent implements OnInit {
       return `background-image: url('${this.selectedFile.src}');`;
     }
 
-    return "background-image: var(--img-tela-console);";
+    return "background-image: var(--img-tela-categoria);";
   }
 
   gerenciaNomeCategoria() {

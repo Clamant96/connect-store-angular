@@ -5,5 +5,6 @@ export class Console {
   public nome: string;
   public icone: string;
   public usuarios: Usuario[];
+  public usuario_id: number;
 
 }

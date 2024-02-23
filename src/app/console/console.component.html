@@ -1,0 +1,34 @@
+<div class="background-categoria" style="background-image: var(--img-tela-console);" ></div>
+
+<section>
+  <div class="bloco">
+    <div class="bloco-categoria">
+
+      <div class="categoria">
+        <h2>{{this.gerenciaNomeConsole()}}</h2>
+      </div>
+
+      <div class="bloco-criar-categoria">
+        <div class="dados">
+          <p class="nome">
+            <input [(ngModel)]="this.console.nome" type="text" name="nome" id="nome" placeholder="Nome console ..." />
+          </p>
+          <div class="selecao">
+            <select name="plataforma" id="icone" (change)='handleNomeIcone($event)'>
+              <option value="0" [defaultSelected]="true" >Icone</option>
+              <option *ngFor='let icone of this.listaIcons' value="{{icone}}"><i class="bi bi-{{icone}}"></i>{{icone}}</option>
+            </select>
+          </div>
+          <div class="icone">
+            <i class="bi bi-{{this.console.icone}}"></i>
+          </div>
+        </div>
+
+        <div class="botao" (click)="cadastrarConsole()" >
+          <p>Cadastrar</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

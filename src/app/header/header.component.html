@@ -20,10 +20,18 @@
       <div class="separacao"></div>
       <p style="color: var(--text-color);">Categorias</p>
     </a>
-    <a id="console">
+    <a [routerLink]="this.renderizaURL(this.idCategoria)" id="console">
       <i class="bi bi-border-width"></i>
       <div class="separacao"></div>
-      <p style="color: var(--text-color);">Consoles</p>
+      <p style="color: var(--text-color);" class="dropbtn">Consoles</p>
+      <div class="dropdown-content">
+        <div *ngFor="let console of this.listaConsoles" class="item" (click)="this.editarConsole(console)" >
+          <div class="icone">
+            <i class="{{console.icone}}"></i>
+          </div>
+          <p>{{console.nome}}</p>
+        </div>
+      </div>
     </a>
     <a id="jogo">
       <i class="bi bi-controller"></i>

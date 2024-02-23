@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categoria.component';
+import { ConsoleComponent } from './console/console.component';
+import { EditarConsoleComponent } from './editar/editar-console/editar-console.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categ
     JogosComponent,
     HeaderComponent,
     CategoriaComponent,
-    EditarCategoriaComponent
+    EditarCategoriaComponent,
+    ConsoleComponent,
+    EditarConsoleComponent
   ],
   imports: [
     BrowserModule,
