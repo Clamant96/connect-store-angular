@@ -95,4 +95,8 @@ export class HomeComponent implements OnInit {
     return retorno;
   }
 
+  ajustaValor(preco: string, desconto: number) {
+    return Number(preco.replace(',', '.')) - (Number(preco.replace(',', '.')) * Math.abs(desconto / 100));
+  }
+
 }

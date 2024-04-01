@@ -215,4 +215,8 @@ export class JogosComponent implements OnInit {
 
   }
 
+  ajustaValor(preco: string, desconto: number) {
+    return Number(preco.replace(',', '.')) - (Number(preco.replace(',', '.')) * Math.abs(desconto / 100));
+  }
+
 }
