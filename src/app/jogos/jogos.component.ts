@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { ImagemService } from './../service/imagem.service';
 import { CategoriaService } from './../service/categoria.service';
 import { Categoria } from './../models/categoria';
@@ -18,7 +19,7 @@ export class JogosComponent implements OnInit {
   public precoJogoPesquisa: string = "";
   public nomeJogoPesquisa: string = "";
 
-  public servidor: string = "http://localhost:8080";
+  public servidor: string = `${environment.server}${environment.porta}`;
   public classe: string = "categoria"
   public pasta: string = "categorias";
 

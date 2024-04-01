@@ -13,6 +13,8 @@ import { Categoria } from '../models/categoria';
 })
 export class HomeComponent implements OnInit {
 
+  public servidor: string = `${environment.server}${environment.porta}`;
+
   public listaJogos: Jogo[] = [];
   public listaCategorias: Categoria[] = [];
 

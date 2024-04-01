@@ -57,7 +57,7 @@
 
       <div class="bloco" *ngFor="let jogo of this.ajustaObjCategoria(this.categoria, this.idConsolePesquisa, this.precoJogoPesquisa, this.nomeJogoPesquisa).jogos">
         <div class="img">
-          <img [src]="jogo.img" [alt]="jogo.nome" />
+          <img src="{{this.servidor}}/jogo/render/jogos/{{jogo.img}}" [alt]="jogo.nome" />
         </div>
         <div class="dados">
           <p class="titulo">
