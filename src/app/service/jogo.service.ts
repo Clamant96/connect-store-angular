@@ -26,4 +26,9 @@ export class JogoService {
     return this.http.get<Jogo[]>(`${this.API}/jogo/`, this.AUTORIZACAO)
   }
 
+  postJogo(jogo: Jogo) {
+
+    return this.http.post(`${this.API}/jogo/criar-jogo`, jogo, this.AUTORIZACAO);
+  }
+
 }

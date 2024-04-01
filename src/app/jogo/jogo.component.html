@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="background-categoria" style="background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/09/Free-game-backgrounds-1080p.jpg');"></div>
+
+<section>
+  <div class="lista">
+
+    <div class="bloco-dados">
+      <div class="bloco-criar-categoria">
+        <div class="img">
+          <input #file type="file" name="img" id="file" accept="image/*" enctype="multipart/form-data" (change)="processFile(file)" />
+          <label for="file">
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+            upload
+          </label>
+        </div>
+
+        <div class="dados">
+          <p class="nome">
+            <input [(ngModel)]="this.jogo.nome" type="text" name="nome" id="nome" placeholder="Nome jogo ..." />
+          </p>
+          <div class="valores">
+            <p class="desconto">
+              <input [(ngModel)]="this.jogo.desconto" type="number" name="desconto" id="desconto" placeholder="Desconto jogo ..." />
+            </p>
+            <p class="preco">
+              <input [(ngModel)]="this.jogo.preco" type="text" name="preco" id="preco" placeholder="Preço jogo ..." />
+            </p>
+          </div>
+          <div class="selecao">
+            <select name="plataforma" id="plataforma" (change)='handleIdConsole($event)'>
+              <option value="0" [defaultSelected]="true" >Plataforma</option>
+              <option *ngFor='let console of this.listaConsoles' value="{{console.id}}">{{console.nome}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pesquisa-dropdown">
+          <div class="dropdown">
+            <div class="select" id="console-selecao" *ngFor="let console of this.jogo.consoles" >
+              <i [class]="console.icone"></i>
+              <div class="acao">
+                <i class="bi bi-x" (click)="this.removeItemDeJogo(console.id, 'consoles')"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="botao" (click)="cadastrarJogo()" >
+          <p>Cadastrar</p>
+        </div>
+      </div>
+
+      <div *ngIf="this.jogo.img" class="bloco">
+        <div class="img">
+          <img [src]="jogo.img" [alt]="jogo.nome" />
+        </div>
+        <div class="dados">
+          <p class="titulo">
+            {{this.ajustaTexto(jogo.nome)}}
+          </p>
+          <p class="console">
+            <i *ngFor="let console of jogo.consoles" [class]="console.icone"></i>
+          </p>
+        </div>
+        <div class="valores">
+          <div *ngIf="jogo.desconto < 0" class="desconto">
+            {{jogo.desconto}}%
+          </div>
+          <div class="botao">
+            R$ {{jogo.preco}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

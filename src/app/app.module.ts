@@ -12,6 +12,7 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categoria.component';
 import { ConsoleComponent } from './console/console.component';
 import { EditarConsoleComponent } from './editar/editar-console/editar-console.component';
+import { JogoComponent } from './jogo/jogo.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditarConsoleComponent } from './editar/editar-console/editar-console.c
     CategoriaComponent,
     EditarCategoriaComponent,
     ConsoleComponent,
-    EditarConsoleComponent
+    EditarConsoleComponent,
+    JogoComponent
   ],
   imports: [
     BrowserModule,
