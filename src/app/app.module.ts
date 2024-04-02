@@ -13,6 +13,7 @@ import { EditarCategoriaComponent } from './editar/editar-categoria/editar-categ
 import { ConsoleComponent } from './console/console.component';
 import { EditarConsoleComponent } from './editar/editar-console/editar-console.component';
 import { JogoComponent } from './jogo/jogo.component';
+import { CardJogoComponent } from './card-jogo/card-jogo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JogoComponent } from './jogo/jogo.component';
     EditarCategoriaComponent,
     ConsoleComponent,
     EditarConsoleComponent,
-    JogoComponent
+    JogoComponent,
+    CardJogoComponent
   ],
   imports: [
     BrowserModule,

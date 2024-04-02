@@ -68,7 +68,7 @@
             {{jogo.desconto}}%
           </div>
           <div class="botao">
-            R$ {{jogo.preco}}
+            R$ {{this.ajustaValor(jogo.preco, jogo.desconto).toFixed(2).replace('.', ',')}}
           </div>
         </div>
       </div>

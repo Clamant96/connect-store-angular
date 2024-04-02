@@ -14,6 +14,10 @@
       </div>
 
       <div class="bloco" *ngFor="let jogo of categoria.jogos">
+        <app-card-jogo [jogo]="jogo"></app-card-jogo>
+      </div>
+
+      <!-- <div class="bloco" *ngFor="let jogo of categoria.jogos">
         <div class="img">
           <img src="{{this.servidor}}/jogo/render/jogos/{{jogo.img}}" [alt]="jogo.nome" />
         </div>
@@ -33,7 +37,7 @@
             R$ {{this.ajustaValor(jogo.preco, jogo.desconto).toFixed(2).replace('.', ',')}}
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
 

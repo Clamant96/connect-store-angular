@@ -1,0 +1,19 @@
+<div class="img">
+  <img src="{{this.servidor}}/jogo/render/jogos/{{jogo.img}}" [alt]="jogo.nome" />
+</div>
+<div class="dados">
+  <p class="titulo">
+    {{this.ajustaTexto(jogo.nome)}}
+  </p>
+  <p class="console">
+    <i *ngFor="let console of jogo.consoles" [class]="console.icone"></i>
+  </p>
+</div>
+<div class="valores">
+  <div *ngIf="jogo.desconto < 0" class="desconto">
+    {{jogo.desconto}}%
+  </div>
+  <div class="botao">
+    R$ {{this.ajustaValor(jogo.preco, jogo.desconto).toFixed(2).replace('.', ',')}}
+  </div>
+</div>
